@@ -1,0 +1,31 @@
+//  🏔️ MTECH Code Challenge TP26: "Can You Digit"
+//  Concept: Practice using regular expressions
+
+//  Instructions:
+    //  Create a function take that takes a string as input and returns a boolean.
+    //  Your function should return true if the input string is a single digit, and false if it is anything else.
+    //  You must use a regular expression to determine this. (Don't use Character's isNumber() method.)
+
+//  Examples:
+    //  Input: "7"
+    //  Output: true
+
+    //  Input: "838"
+    //  Output: false
+
+    //  Input: "hi"
+    //  Output: false
+
+//  ⌺ Black Diamond Challenge:
+    //  Extend the function to handle the following cases:
+    //  1. Leading or trailing spaces: "  7  " should return true.
+    //  2. Single digit with a positive or negative sign: "+7" and "-7" should return true.
+    //  3. A digit within a string: "abc7xyz" should return true.
+
+import Foundation
+
+func singleDigit(input: String) -> Bool {
+    return input.range(of: "^[0-9]$", options: .regularExpression) != nil
+}
+print(singleDigit(input: "6"))
+print(singleDigit(input: "10"))

@@ -1,0 +1,43 @@
+//  🏔️ MTECH Code Challenge TP20: "Sum Without Extremes"
+//  Concept: Practice accessing and evaluating a set of data in an array that is not the entire array
+
+//  Instructions:
+    //  Sum all the numbers of a given array, except the highest and the lowest element (by value, not by index!).
+
+//  Notes:
+    //  If there are multiple instances of the highest and lowest element, omit only one of them from your sum.
+    //  If there are too few elements (less than 3) in your array such that no values can be summed, return 0.
+
+//  Examples:
+    //  Input: [15,5,6,7,2,3,22,12,22]
+    //  Math: 3 + 5 + 6 + 7 + 12 + 15 + 22 = 70 (omitting 2 and a single instance of 22)
+    //  Output: 70
+
+//  ⌺ Black Diamond Challenge:
+    //  Make it so that your function can be called like this:
+    //  let sum = [1,2,3,4,5].sumWithoutExtremes()
+
+import Foundation
+
+func sum(_ array: [Int]) -> Int {
+    guard array.count > 2 else {
+        return 0
+    }
+    var sum: Int = 0
+    var minVal: Int = array[0]
+    var maxVal: Int = array[0]
+    
+    for element in array {
+        sum += element
+        if element < minVal{
+            minVal = element
+        }
+        if element > maxVal {
+            maxVal = element
+        }
+    }
+    return sum - maxVal - minVal
+}
+let numbers = [6, 2, 1, 8, 10]
+let result = sum(numbers)
+print(result)
